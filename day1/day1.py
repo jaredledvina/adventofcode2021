@@ -4,7 +4,6 @@ Advent of Code - Day 1
 """
 import os
 
-from itertools import islice
 
 def read_input():
     """
@@ -36,16 +35,14 @@ def part2(puzzle_input):
     >>> part2([199, 200, 208, 210, 200, 207, 240, 269, 260, 263])
     5
     """
+    first = 0
+    last = 3
     larger = 0
-    result = tuple(islice(puzzle_input, 3))
-    previous = False
-    for elem in puzzle_input:
-        result = result[1:] + (elem,)
-        current = sum(result)
-        if previous:
-            if previous < current:
-                larger += 1
-        previous = current
+    while last < len(puzzle_input):
+        if puzzle_input[first] < puzzle_input[last]:
+            larger += 1
+        first += 1
+        last += 1
     return larger
 
 
