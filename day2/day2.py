@@ -11,21 +11,44 @@ def read_input():
     input_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     with open(input_path, encoding='utf-8') as input_file:
         puzzle_input = input_file.read().splitlines()
-    puzzle_input = [int(entry) for entry in puzzle_input]
     return puzzle_input
 
 def part1(puzzle_input):
     """
-    >>> part1()
+    >>> part1(['forward 5', 'down 5', 'forward 8', 'up 3', 'down 8', 'forward 2'])
+    150
     """
-    pass
+    horizontal = 0
+    vertical = 0
+    for movement in puzzle_input:
+        direction, distance = movement.split()
+        if direction == 'forward':
+            horizontal += int(distance)
+        elif direction == 'up':
+            vertical -= int(distance)
+        elif direction == 'down':
+            vertical += int(distance)
+    return horizontal * vertical
 
 
 def part2(puzzle_input):
     """
-    >>> part2()
+    >>> part2(['forward 5', 'down 5', 'forward 8', 'up 3', 'down 8', 'forward 2'])
+    900
     """
-    pass
+    horizontal = 0
+    vertical = 0
+    aim = 0
+    for movement in puzzle_input:
+        direction, distance = movement.split()
+        if direction == 'forward':
+            horizontal += int(distance)
+            vertical += aim * int(distance)
+        elif direction == 'up':
+            aim -= int(distance)
+        elif direction == 'down':
+            aim += int(distance)
+    return horizontal * vertical
 
 
 def main():
