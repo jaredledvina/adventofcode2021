@@ -51,7 +51,6 @@ def part2(puzzle_input):
             for reading in oxygen_sensor_readings:
                 current_o2_sensor_readings.append(reading[current_o2_column])
             commons = Counter(current_o2_sensor_readings).most_common()
-            print(commons)
             if len(commons) > 1 and commons[0][1] == commons[1][1]:
                 most_common = '1'
             else:
