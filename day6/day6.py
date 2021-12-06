@@ -17,10 +17,10 @@ def read_input():
 
 def sunrise_sunset(school, days):
     """
-    >>> sunrise_sunset([3,4,3,1,2])
-    [2, 3, 2, 0, 1]
-    >>> sunrise_sunset([2,3,2,0,1])
-    [1, 2, 1, 6, 0, 8]
+    >>> sunrise_sunset([3,4,3,1,2], 1)
+    {0: 1, 1: 1, 2: 2, 3: 1, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
+    >>> sunrise_sunset([2,3,2,0,1], 2)
+    {0: 2, 1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 1, 7: 1, 8: 1}
     """
     current_schools = {
         0: 0,
